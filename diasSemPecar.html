@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Dias sem Pecar</title>
+  <style>
+    /* Estilos CSS personalizados */
+    body {
+      background-color: #1d4f91;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1, p {
+      margin-bottom: 10vh;
+    }
+
+    .action-button {
+      background-color: #df4661;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .action-button.clicked {
+      animation: blink 0.3s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    /* Estilos adicionados para centralizar o botão "Marcar dia" e a frase "Marque um dia a cada 24 horas" */
+    #mark-day-button,
+    #days-counter,
+    #days-description {
+      display: flex;
+      justify-content: center;
+    }
+    
+    #mark-day-button {
+      margin-bottom: 20px;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <a href="metas.html" class="action-button back-button">Voltar</a>
+  <br><br>
+  <h1>Vamos marcar suas vitórias contra o pecado?</h1>
+  <p>Essa página tem como propósito te ajudar a vencer o pecado através da marcação diária de dias sem pecado..</p>
+  <div>
+    <div id="mark-day-button">
+      <button class="action-button">Marcar dia</button>
+    </div>
+    <p id="days-counter"></p>
+    <p id="days-description">Marque um dia a cada 24 horas</p>
+  </div>
+  
+  <script>
+    // Script específico da página de dias sem pecar
+    var markDayButton = document.querySelector('#mark-day-button button');
+    var daysCounter = document.getElementById('days-counter');
+    var lastMarkedDay = localStorage.getItem('lastMarkedDay');
+    var currentDate = new Date().toLocaleDateString();
+
+    if (!lastMarkedDay || lastMarkedDay !== currentDate) {
+      markDayButton.addEventListener('click', function() {
+        var currentDay = new Date().toLocaleDateString();
+        if (lastMarkedDay && lastMarkedDay !== currentDay) {
+          localStorage.removeItem('daysCounter');
+        }
+
+        var daysCounterValue = localStorage.getItem('daysCounter') || 0;
+        daysCounterValue = parseInt(daysCounterValue);
+
+        if (daysCounterValue === 0) {
+          daysCounterValue++;
+          daysCounter.textContent = '1 dia';
+          markDayButton.disabled = true;
+        } else {
+          markDayButton.classList.add('clicked');
+          markDayButton.disabled = true;
+        }
+
+        localStorage.setItem('daysCounter', daysCounterValue);
+        localStorage.setItem('lastMarkedDay', currentDay);
+      });
+    } else {
+      markDayButton.disabled = true;
+      daysCounter.textContent = 'Você já marcou o dia de hoje';
+    }
+
+    var storedDaysCounter = localStorage.getItem('daysCounter');
+    if (storedDaysCounter) {
+      daysCounter.textContent = storedDaysCounter === '1' ? '1 dia' : storedDaysCounter + ' dias';
+    }
+
+    var currentHour = new Date().getHours();
+    if (currentHour === 0) {
+      markDayButton.disabled = false;
+    }
+  </script>
+</body>
+</html>
