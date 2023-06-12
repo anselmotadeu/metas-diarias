@@ -4,120 +4,72 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>Dias sem Pecar</title>
-  <style>
-    /* Estilos CSS personalizados */
-    body {
-      background-color: #1d4f91;
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    h1, p {
-      margin-bottom: 10vh;
-    }
-
-    .action-button {
-      background-color: #df4661;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .action-button.clicked {
-      animation: blink 0.3s infinite;
-    }
-
-    @keyframes blink {
-      50% {
-        opacity: 0;
-      }
-    }
-
-    /* Estilos adicionados para centralizar o botão "Marcar dia" e a frase "Marque um dia a cada 24 horas" */
-    #mark-day-button,
-    #days-counter,
-    #days-description {
-      display: flex;
-      justify-content: center;
-    }
-    
-    #mark-day-button {
-      margin-bottom: 20px;
-    }
-
-    .back-button {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      text-align: left;
-    }
-  </style>
+  <link rel="stylesheet" href="diasSemPecar.css">
 </head>
 <body>
   <a href="metas.html" class="action-button back-button">Voltar</a>
   <br><br>
   <h1>Vamos marcar suas vitórias contra o pecado?</h1>
-  <p>Essa página tem como propósito te ajudar a vencer o pecado através da marcação diária de dias sem pecado..</p>
-  <div>
-    <div id="mark-day-button">
-      <button class="action-button">Marcar dia</button>
+  <p>Essa é uma espécie de checklist para você acompanhar seu progresso.</p>
+  <br>
+  <button class="action-button" id="mark-day-button">Marcar dia</button>
+  <p id="days-counter"></p>
+  <p id="days-description">Marque um dia a cada 24 horas</p>
+  <button class="action-button" id="checklist-button">Checklist do bem</button>
+
+  <div class="modal" id="checklist-modal">
+    <div class="modal-content">
+      <span class="modal-close" id="modal-close-button">&times;</span>
+      <h2 class="modal-title">Checklist do bem</h2>
+      <div class="checklist-item">
+        <input type="checkbox" id="checkbox1" class="checkbox-item">
+        <label for="checkbox1" class="checklist-item-label">1. Não terás outros deuses diante de mim</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="checkbox2" class="checkbox-item">
+        <label for="checkbox2" class="checklist-item-label">2. Não farás para ti imagem de escultura</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="checkbox3" class="checkbox-item">
+        <label for="checkbox3" class="checklist-item-label">3. Não tomarás o nome do Senhor teu Deus em vão</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="checkbox4" class="checkbox-item">
+        <label for="checkbox4" class="checklist-item-label">4. Guardarás o dia de sábado</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="checkbox5" class="checkbox-item">
+        <label for="checkbox5" class="checklist-item-label">5. Honrarás teu pai e tua mãe</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="checkbox6" class="checkbox-item">
+        <label for="checkbox6" class="checklist-item-label">6. Não matarás</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="checkbox7" class="checkbox-item">
+        <label for="checkbox7" class="checklist-item-label">7. Não adulterarás</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="checkbox8" class="checkbox-item">
+        <label for="checkbox8" class="checklist-item-label">8. Não furtarás</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="checkbox9" class="checkbox-item">
+        <label for="checkbox9" class="checklist-item-label">9. Não dirás falso testemunho</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="checkbox10" class="checkbox-item">
+        <label for="checkbox10" class="checklist-item-label">10. Não cobiçarás</label>
+      </div>
+      <div class="message-container" id="message-container">
+        <p class="message" id="message"></p>
+        <div class="fireworks">
+          <img src="images/fireworks.gif" alt="Fogos de artifício">
+        </div>
+      </div>
+      <button class="action-button" id="save-button">Salvar</button>
     </div>
-    <p id="days-counter"></p>
-    <p id="days-description"><b>Marque um dia a cada 24 horas</b></p>
   </div>
-  
-  <script>
-    // Script específico da página de dias sem pecar
-    var markDayButton = document.querySelector('#mark-day-button button');
-    var daysCounter = document.getElementById('days-counter');
-    var lastMarkedDay = localStorage.getItem('lastMarkedDay');
-    var currentDate = new Date().toLocaleDateString();
-
-    if (!lastMarkedDay || lastMarkedDay !== currentDate) {
-      markDayButton.addEventListener('click', function() {
-        var currentDay = new Date().toLocaleDateString();
-        if (lastMarkedDay && lastMarkedDay !== currentDay) {
-          localStorage.removeItem('daysCounter');
-        }
-
-        var daysCounterValue = localStorage.getItem('daysCounter') || 0;
-        daysCounterValue = parseInt(daysCounterValue);
-
-        if (daysCounterValue === 0) {
-          daysCounterValue++;
-          daysCounter.textContent = '1 dia';
-          markDayButton.disabled = true;
-        } else {
-          markDayButton.classList.add('clicked');
-          markDayButton.disabled = true;
-        }
-
-        localStorage.setItem('daysCounter', daysCounterValue);
-        localStorage.setItem('lastMarkedDay', currentDay);
-      });
-    } else {
-      markDayButton.disabled = true;
-      daysCounter.textContent = 'Você já marcou o dia de hoje';
-    }
-
-    var storedDaysCounter = localStorage.getItem('daysCounter');
-    if (storedDaysCounter) {
-      daysCounter.textContent = storedDaysCounter === '1' ? '1 dia' : storedDaysCounter + ' dias';
-    }
-
-    var currentHour = new Date().getHours();
-    if (currentHour === 0) {
-      markDayButton.disabled = false;
-    }
-  </script>
+  <script src="diasSemPecar.js"></script>
 </body>
 </html>
