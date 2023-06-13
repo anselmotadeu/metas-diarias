@@ -130,11 +130,11 @@ document.addEventListener("DOMContentLoaded", function() {
       messageContainer.style.display = "block";
     } else if (checkedCount === totalCount) {
       // Todos os checkboxes marcados
-      message.innerHTML = "Você concluiu a checklist do bem!";
+      message.innerHTML = "Você concluiu a checklist do bem, meus parabéns!";
       messageContainer.style.display = "block";
     } else {
       // Alguns checkboxes marcados
-      message.innerHTML = "Você marcou alguns itens da checklist, continue assim!";
+      message.innerHTML = "Muito bem, você marcou alguns itens da checklist. Observe onde errou para amanhã não cometer o mesmo erro.";
       messageContainer.style.display = "block";
     }
 

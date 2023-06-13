@@ -1,0 +1,92 @@
+/* Estilos CSS personalizados */
+body {
+    background-color: #1d4f91;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  
+  .form-field {
+    margin-bottom: 10px;
+  }
+  
+  .form-field label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-field input {
+    width: 100%;
+    padding: 5px;
+  }
+  
+  .checkbox-field {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox-field label {
+    margin-left: 5px;
+  }
+  
+  .action-button {
+    background-color: #df4661;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .success-message {
+    margin-top: 10px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .back-button {
+    background-color: #df4661;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    float: left;
+  }
+  
+  .requirements {
+    margin-top: 20px;
+  }
+  
+  .requirements h3 {
+    margin-bottom: 5px;
+  }
+  
+  .requirements ul {
+    padding-left: 20px;
+  }
+  
+  .requirements li {
+    margin-bottom: 5px;
+    list-style-type: none;
+  }
+  
+  .requirements li::before {
+    content: "\2714";
+    margin-right: 5px;
+    color: green;
+  }
+  
+  .requirements li.invalid::before {
+    content: "\2718";
+    margin-right: 5px;
+    color: red;
+  }
+  

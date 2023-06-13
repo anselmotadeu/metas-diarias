@@ -1,0 +1,100 @@
+/* Estilos CSS personalizados */
+body {
+    background-color: #1d4f91;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  
+  .form-field {
+    margin-bottom: 20px;
+  }
+  
+  .form-field label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-field input {
+    width: 100%;
+    padding: 5px;
+  }
+  
+  .action-button {
+    background-color: #df4661;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .back-button {
+    background-color: #df4661;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .daily-mark {
+    text-align: center;
+  }
+  
+  .daily-mark-button {
+    background-color: #df4661;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  /* Estilos para o ícone de baú */
+  .treasure-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Estilos para o pop-up */
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+  }
+  
+  .popup-content {
+    color: white;
+  }
+  
+  .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  
+  
