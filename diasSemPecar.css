@@ -136,6 +136,10 @@ p {
   pointer-events: none;
 }
 
+#checklist-button {
+  display: block;
+}
+
 @keyframes loading {
   0% {
     background-color: #1d4f91;
