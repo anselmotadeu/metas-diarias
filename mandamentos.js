@@ -7,5 +7,5 @@ backButton.addEventListener('click', function() {
 });
 
 nextButton.addEventListener('click', function() {
-  window.location.href = 'metas.html';
+  window.location.href = 'index.html';
 });

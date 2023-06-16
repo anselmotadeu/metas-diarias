@@ -3,7 +3,7 @@ var skipButton = document.getElementById('skip-button');
 var nextButton = document.getElementById('next-button');
 
 skipButton.addEventListener('click', function() {
-  window.location.href = 'metas.html';
+  window.location.href = 'index.html';
 });
 
 nextButton.addEventListener('click', function() {
