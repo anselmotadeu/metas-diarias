@@ -5,28 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>Mandamentos</title>
   <link rel="stylesheet" href="mandamentos.css">
+  <style>
+    .mandamento-details {
+      display: none;
+    }
+
+    .mandamentos-info {
+      text-align: center;
+      margin-top: 90px;
+      margin-bottom: 40px; /* Ajuste a margem inferior conforme necessário */
+      font-style: italic;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <a href="introduce.html" class="button button-back">Voltar</a>
     <div class="content">
       <h1>Mandamentos</h1>
+      <p>Aqui estão os 10 mandamentos que devemos seguir:</p>
       <ol>
-        <li>1. Não terás outros deuses diante de mim.</li>
-        <li>2. Não farás para ti imagem de escultura.</li>
-        <li>3. Não tomarás o nome do Senhor teu Deus em vão.</li>
-        <li>4. Lembrar-te-ás do dia do sábado, para o santificar.</li>
-        <li>5. Honra a teu pai e a tua mãe.</li>
-        <li>6. Não matarás.</li>
-        <li>7. Não adulterarás.</li>
-        <li>8. Não furtarás.</li>
-        <li>9. Não dirás falso testemunho contra o teu próximo.</li>
-        <li>10. Não cobiçarás a casa do teu próximo.</li>
+        <li>
+          <div class="mandamento-header">
+            <strong>1. Não terás outros deuses diante de mim.</strong>
+          </div>
+          <div class="mandamento-details">
+            <p>Reconheça a primazia e a adoração exclusiva a Deus.</p>
+          </div>
+        </li>
+        <li>
+          <div class="mandamento-header">
+            <strong>2. Não farás para ti imagem de escultura.</strong>
+          </div>
+          <div class="mandamento-details">
+            <p>Não idolatre objetos ou criaturas, adorando somente a Deus.</p>
+          </div>
+        </li>
+        <li>
+          <div class="mandamento-header">
+            <strong>3. Não tomarás o nome do Senhor teu Deus em vão.</strong>
+          </div>
+          <div class="mandamento-details">
+            <p>Não use o nome de Deus de forma irreverente ou para enganar.</p>
+          </div>
+        </li>
+        <li>
+          <div class="mandamento-header">
+            <strong>4. Lembrar-te-ás do dia do sábado, para o santificar.</strong>
+          </div>
+          <div class="mandamento-details">
+            <p>Reserve o sábado como um dia santo para adorar a Deus.</p>
+          </div>
+        </li>
+        <li>
+          <div class="mandamento-header">
+            <strong>5. Honra a teu pai e a tua mãe.</strong>
+          </div>
+          <div class="mandamento-details">
+            <p>Respeite e obedeça aos seus pais como um mandamento divino.</p>
+          </div>
+        </li>
+        <li>
+          <div class="mandamento-header">
+            <strong>6. Não matarás.</strong>
+          </div>
+          <div class="mandamento-details">
+            <p>Não tire a vida de outra pessoa injustamente.</p>
+          </div>
+        </li>
+        <li>
+          <div class="mandamento-header">
+            <strong>7. Não adulterarás.</strong>
+          </div>
+          <div class="mandamento-details">
+            <p>Seja fiel e mantenha a santidade nos relacionamentos conjugais.</p>
+          </div>
+        </li>
+        <li>
+          <div class="mandamento-header">
+            <strong>8. Não furtarás.</strong>
+          </div>
+          <div class="mandamento-details">
+            <p>Não roube ou tome posse injusta dos bens dos outros.</p>
+          </div>
+        </li>
+        <li>
+          <div class="mandamento-header">
+            <strong>9. Não dirás falso testemunho contra o teu próximo.</strong>
+          </div>
+          <div class="mandamento-details">
+            <p>Não minta ou dê falso testemunho contra outras pessoas.</p>
+          </div>
+        </li>
+        <li>
+          <div class="mandamento-header">
+            <strong>10. Não cobiçarás a casa do teu próximo.</strong>
+          </div>
+          <div class="mandamento-details">
+            <p>Não deseje ou inveje os bens alheios.</p>
+          </div>
+        </li>
       </ol>
+      <p class="mandamentos-info">*Clique em cada mandamento para obter mais informações.</p>
     </div>
     <a href="metas.html" class="button button-next">Finalizar</a>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.mandamento-header').click(function() {
+        $(this).siblings('.mandamento-details').slideToggle();
+      });
+    });
+  </script>
   <script src="mandamentos.js"></script>
 </body>
 </html>
